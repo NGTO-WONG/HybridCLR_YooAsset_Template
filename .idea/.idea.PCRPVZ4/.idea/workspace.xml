@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40a83837-6d24-4e6d-8faa-5797f358daea" name="Changes" comment="" />
+    <list default="true" id="40a83837-6d24-4e6d-8faa-5797f358daea" name="Changes" comment="fristCommit">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PCRPVZ4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PCRPVZ4/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://F:/PCRPVZ4/Assets/Game/Script/AOT/Root.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/Game/Script/AOT/Root.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/Game/Script/HotUpdate/UI/Panel_Heroes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/Game/Script/HotUpdate/UI/Panel_Heroes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/Game/Script/HotUpdate/UI/Panel_Heroes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/HybridCLRData/Generated/AOTGenericReferences.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/Assets/HybridCLRData/Generated/AOTGenericReferences.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/PCRPVZ4/ProjectSettings/UnityConnectSettings.asset" root0="SKIP_HIGHLIGHTING" />
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1689155002" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1689155001" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2SSEYPCA2oL6waevO32yBb8pDbT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -96,6 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689131631858</updated>
       <workItem from="1689131638495" duration="9270000" />
+      <workItem from="1689154615620" duration="845000" />
     </task>
     <task id="LOCAL-00001" summary="changeVersion">
       <created>1689135059182</created>
@@ -125,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689154285489</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fristCommit">
+      <created>1689154772433</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689154772433</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -143,9 +169,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="changeVersion" />
     <MESSAGE value="t" />
-    <option name="LAST_COMMIT_MESSAGE" value="t" />
+    <MESSAGE value="fristCommit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fristCommit" />
   </component>
 </project>

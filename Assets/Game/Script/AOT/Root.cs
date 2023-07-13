@@ -21,6 +21,7 @@ namespace Game.Script.AOT
             await UpdatePackageManifest(packageVersion);
             //4 资源包下载 
             await Download();
+
             //5 拷贝HotUpdate热更新文件
             await CopyHotUpdateDll();
             //6 读取HotUpdate热更新文件 如果你不想用yooAsset 请删除1-4 自己实现5 
@@ -29,7 +30,9 @@ namespace Game.Script.AOT
             await StartGame("_1_GamePlay");
         }
 
-
+        /// <summary>
+        /// 6 读取HotUpdate热更新文件 
+        /// </summary>
         private async UniTask LoadHotUpdateDll()
         {
             // Editor环境下，HotUpdate.dll.bytes已经被自动加载，不需要加载，重复加载反而会出问题。
@@ -41,26 +44,12 @@ namespace Game.Script.AOT
 #endif
         }
 
-        /// <summary>
-        /// 5 获取HotUpdate.dll.bytes 覆盖拷贝到Application.persistentDataPath
-        /// </summary>
-        private async UniTask CopyHotUpdateDll()
-        {
-            string location = "HotUpdate.dll";
-            var package = YooAssets.GetPackage("DefaultPackage");
-            RawFileOperationHandle handle = package.LoadRawFileAsync(location);
-            await handle.Task;
-            string filePath = handle.GetRawFilePath();
-            File.Copy(filePath, Application.persistentDataPath + "/HotUpdate.dll.bytes", true);
-        }
-
         #region YooAsset
 
         /// <summary>
         /// 资源系统运行模式
         /// </summary>
         public EPlayMode PlayMode = EPlayMode.EditorSimulateMode;
-
         public string HostURL;
         public string Version;
 
@@ -167,57 +156,41 @@ namespace Game.Script.AOT
             int totalDownloadCount = downloader.TotalDownloadCount;
             long totalDownloadBytes = downloader.TotalDownloadBytes;
 
-            //注册回调方法
+            /*注册回调方法 
 
-            // downloader.OnDownloadErrorCallback = OnDownloadErrorFunction;
-            // downloader.OnDownloadProgressCallback = OnDownloadProgressUpdateFunction;
-            // downloader.OnDownloadOverCallback = OnDownloadOverFunction;
-            // downloader.OnStartDownloadFileCallback = OnStartDownloadFileFunction;
+            downloader.OnDownloadErrorCallback = OnDownloadErrorFunction;
+            downloader.OnDownloadProgressCallback = OnDownloadProgressUpdateFunction;
+            downloader.OnDownloadOverCallback = OnDownloadOverFunction;
+            downloader.OnStartDownloadFileCallback = OnStartDownloadFileFunction;
+            
+            */
 
             //开启下载
             downloader.BeginDownload();
             await downloader.Task;
 
-
             //检测下载结果
             if (downloader.Status == EOperationStatus.Succeed)
             {
-                //下载成功
                 Debug.Log("下载成功");
             }
             else
             {
-                //下载失败
                 Debug.Log("下载失败");
             }
         }
 
         /// <summary>
-        /// 资源文件解密服务类
+        /// 5 获取HotUpdate.dll.bytes 覆盖拷贝到Application.persistentDataPath
         /// </summary>
-        private class GameDecryptionServices : IDecryptionServices
+        private async UniTask CopyHotUpdateDll()
         {
-            public ulong LoadFromFileOffset(DecryptFileInfo fileInfo)
-            {
-                return 32;
-            }
-
-            public byte[] LoadFromMemory(DecryptFileInfo fileInfo)
-            {
-                throw new NotImplementedException();
-            }
-
-            public Stream LoadFromStream(DecryptFileInfo fileInfo)
-            {
-                BundleStream bundleStream =
-                    new BundleStream(fileInfo.FilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                return bundleStream;
-            }
-
-            public uint GetManagedReadBufferSize()
-            {
-                return 1024;
-            }
+            string location = "HotUpdate.dll";
+            var package = YooAssets.GetPackage("DefaultPackage");
+            RawFileOperationHandle handle = package.LoadRawFileAsync(location);
+            await handle.Task;
+            string filePath = handle.GetRawFilePath();
+            File.Copy(filePath, Application.persistentDataPath + "/HotUpdate.dll.bytes", true);
         }
 
         async UniTask StartGame(string sceneName)

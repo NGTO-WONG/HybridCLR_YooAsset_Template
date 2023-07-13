@@ -35,12 +35,12 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
-    - GroupName: UI
+    - GroupName: Prefab
       GroupDesc: 
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/Game/Assets/UI
+      - CollectPath: Assets/Game/Assets/Prefab
         CollectorGUID: 61499e40f72034a9b9390aa687cbcb4e
         CollectorType: 0
         AddressRuleName: AddressByFileName
@@ -58,19 +58,6 @@ MonoBehaviour:
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackRawFile
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
-    - GroupName: Sprite
-      GroupDesc: 
-      AssetTags: 
-      ActiveRuleName: EnableGroup
-      Collectors:
-      - CollectPath: Assets/Game/Assets/Sprite
-        CollectorGUID: a35044c25f6f048b4934c879106e2093
-        CollectorType: 2
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackGroup
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 

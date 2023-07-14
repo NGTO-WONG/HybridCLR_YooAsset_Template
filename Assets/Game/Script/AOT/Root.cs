@@ -21,7 +21,6 @@ namespace Game.Script.AOT
             await UpdatePackageManifest(packageVersion);
             //4 资源包下载 
             await Download();
-
             //5 拷贝HotUpdate热更新文件
             await CopyHotUpdateDll();
             //6 读取HotUpdate热更新文件 如果你不想用yooAsset 请删除1-4 自己实现5 

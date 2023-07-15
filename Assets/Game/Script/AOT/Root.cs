@@ -26,7 +26,7 @@ namespace Game.Script.AOT
             //6 读取HotUpdate热更新文件 如果你不想用yooAsset 请删除1-4 自己实现5 
             await LoadHotUpdateDll();
             //7 更新结束 开始游戏
-            await StartGame("_1_GamePlay");
+            await StartGame(GamePlayScene);
         }
 
         /// <summary>
@@ -36,7 +36,8 @@ namespace Game.Script.AOT
         {
             // Editor环境下，HotUpdate.dll.bytes已经被自动加载，不需要加载，重复加载反而会出问题。
 #if UNITY_EDITOR
-            Debug.Log("编辑器模式无需加载热更Dll");
+            await UniTask.DelayFrame(1);
+            Debug.Log("编辑器模式无需加载热更Dll ");
 #else
             byte[] assemblyData = await File.ReadAllBytesAsync(Application.persistentDataPath + "/HotUpdate.dll.bytes");
             Assembly.Load(assemblyData);
@@ -45,6 +46,7 @@ namespace Game.Script.AOT
 
         #region YooAsset
 
+        public string GamePlayScene="_1_GamePlay";
         /// <summary>
         /// 资源系统运行模式
         /// </summary>
@@ -79,8 +81,8 @@ namespace Game.Script.AOT
                     var initParameters = new HostPlayModeParameters();
                     initParameters.QueryServices = new GameQueryServices(); //太空战机DEMO的脚本类，详细见StreamingAssetsHelper
                     initParameters.DecryptionServices = new GameDecryptionServices();
-                    initParameters.DefaultHostServer = $"http://{HostURL}/CDN/{Version}";
-                    initParameters.FallbackHostServer = $"http://{HostURL}/CDN/{Version}";
+                    initParameters.DefaultHostServer = $"http://{HostURL}/{Version}";
+                    initParameters.FallbackHostServer = $"http://{HostURL}/{Version}";
                     var initOperation = package.InitializeAsync(initParameters);
                     await initOperation.Task;
                     if (initOperation.Status == EOperationStatus.Succeed)
